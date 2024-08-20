@@ -1,66 +1,222 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto Laravel 11
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este é um projeto Laravel 11 que utiliza PHPUnit para testes, Tenancy for Laravel para multi-tenancy, Actions Pattern para organização de código, Sanctum para autenticação de API e MailHog para captura de e-mails durante o desenvolvimento.
 
-## About Laravel
+## Requisitos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP >= 8.1
+- Composer
+- MySQL ou MariaDB
+- Node.js e npm (para front-end)
+- MailHog (para captura de e-mails)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Instalação
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Passo 1: Clonar o repositório
 
-## Learning Laravel
+```sh
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Passo 2: Instalar dependências
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```sh
+composer install
+npm install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Passo 3: Configurar o ambiente
 
-## Laravel Sponsors
+Copie o arquivo [`.env.example`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fhome%2Fjones%2FDeskBee%2Fsys%2Fdeskbee-server%2F.env.example%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/home/jones/DeskBee/sys/deskbee-server/.env.example") para [`.env`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fhome%2Fjones%2FDeskBee%2Fsys%2Fdeskbee-server%2F.env%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/home/jones/DeskBee/sys/deskbee-server/.env") e configure as variáveis de ambiente conforme necessário.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```sh
+cp .env.example .env
+```
 
-### Premium Partners
+### Passo 4: Gerar a chave da aplicação
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```sh
+php artisan key:generate
+```
 
-## Contributing
+### Passo 5: Configurar o banco de dados
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Configure as variáveis de ambiente do banco de dados no arquivo [`.env`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fhome%2Fjones%2FDeskBee%2Fsys%2Fdeskbee-server%2F.env%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/home/jones/DeskBee/sys/deskbee-server/.env").
 
-## Code of Conduct
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=seu_banco_de_dados
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Passo 6: Executar migrações e seeders
 
-## Security Vulnerabilities
+```sh
+php artisan migrate
+php artisan db:seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Passo 7: Configurar o Tenancy for Laravel
 
-## License
+Execute as migrações e seeders para o Tenancy.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```sh
+php artisan tenants:migrate
+php artisan tenants:seed
+```
+
+### Passo 8: Iniciar o servidor de desenvolvimento
+
+```sh
+php artisan serve
+```
+
+### Passo 9: Iniciar o MailHog
+
+```sh
+mailhog
+```
+
+Acesse o MailHog em [http://localhost:8025](http://localhost:8025).
+
+## Testes
+
+### Executar testes unitários e de feature
+
+```sh
+php artisan test
+```
+
+### Executar testes em paralelo
+
+```sh
+php artisan test --parallel
+```
+
+### Executar testes com saída compacta
+
+```sh
+php artisan test --compact
+```
+
+## Autenticação com Sanctum
+
+Sanctum é usado para autenticação de API. Para configurar, siga a [documentação oficial do Sanctum](https://laravel.com/docs/11.x/sanctum).
+
+## Padrão de Ações (Actions Pattern)
+
+O padrão de ações é usado para organizar a lógica de negócios em classes separadas. Cada ação representa uma única responsabilidade ou tarefa.
+
+### Exemplo de uma ação
+
+```php
+namespace App\Actions;
+
+use App\Models\User;
+
+class CreateUserAction
+{
+    public function execute(array $data): User
+    {
+        return User::create($data);
+    }
+}
+```
+
+### Usando a ação em um controlador
+
+```php
+namespace App\Http\Controllers;
+
+use App\Actions\CreateUserAction;
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    public function store(Request $request, CreateUserAction $createUserAction)
+    {
+        $user = $createUserAction->execute($request->all());
+
+        return response()->json($user, 201);
+    }
+}
+```
+
+## Configuração de Testes com Tenancy
+
+### Exemplo de configuração de testes com Tenancy
+
+No arquivo [`TestTenancyCase.php`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fhome%2Fjones%2FWebDev%2Fgateway%2Ftests%2FTestTenancyCase.php%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/home/jones/WebDev/gateway/tests/TestTenancyCase.php"), você pode configurar a inicialização e limpeza do banco de dados para cada tenant:
+
+```php
+<?php
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
+
+class TestTenancyCase extends TestCase
+{
+    protected $tenant;
+    protected $tenantDomain;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // Configuração do tenant
+        $this->tenant = Tenant::factory()->create();
+        $this->tenantDomain = 'tenant' . $this->tenant->id . '.example.com';
+
+        Domain::create([
+            'domain' => $this->tenantDomain,
+            'tenant_id' => $this->tenant->id,
+        ]);
+
+        // Executar migrações e seeders para o tenant
+        $this->artisan('tenants:migrate', [
+            '--tenants' => [$this->tenant->id],
+        ]);
+
+        $this->artisan('tenants:seed', [
+            '--class' => 'Database\Seeders\Development\RolePermissionSeeder',
+            '--tenants' => [$this->tenant->id],
+        ]);
+
+        tenancy()->initialize($this->tenant);
+
+        $this->artisan('tenants:seed', [
+            '--class' => 'Database\Seeders\Development\RolePermissionSeeder',
+            '--tenants' => [$this->tenant->id],
+        ]);
+    }
+
+    protected static function truncateTables()
+    {
+        DB::connection('tenant')->statement('SET FOREIGN_KEY_CHECKS=0;');
+        $tables = DB::connection('tenant')->select('SHOW TABLES');
+        foreach ($tables as $table) {
+            $tableName = array_values((array) $table)[0];
+            if (DB::connection('tenant')->table($tableName)->count()){
+                DB::connection('tenant')->table($tableName)->truncate();
+            }
+        }
+        DB::connection('tenant')->statement('SET FOREIGN_KEY_CHECKS=1;');
+    }
+}
+```
+
+## Contribuição
+
+1. Faça um fork do projeto.
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`).
+3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`).
+4. Faça o push para a branch (`git push origin feature/nova-feature`).
+5. Crie um novo Pull Request.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
