@@ -10,6 +10,29 @@ Este é um projeto Laravel 11 que utiliza PHPUnit para testes, Tenancy for Larav
 - Node.js e npm (para front-end)
 - MailHog (para captura de e-mails)
 
+## Code Coverage Report
+
+**Date:** 2024-08-20 15:16:49
+
+### Summary
+
+| Metric   | Coverage       | Covered / Total |
+|----------|----------------|-----------------|
+| **Classes** | ![69.05%](https://img.shields.io/badge/69.05%25-yellow) | 29 / 42 |
+| **Methods** | ![79.21%](https://img.shields.io/badge/79.21%25-yellowgreen) | 80 / 101 |
+| **Lines**   | ![87.34%](https://img.shields.io/badge/87.34%25-green) | 345 / 395 |
+
+### Detailed Coverage
+
+- **Classes:** 69.05% (29/42)
+- **Methods:** 79.21% (80/101)
+- **Lines:** 87.34% (345/395)
+
+To check the detailed coverage report, run:
+
+```sh
+composer coverage:status
+
 ## Instalação
 
 ### Passo 1: Clonar o repositório
