@@ -4,28 +4,12 @@ namespace Tests\Feature\City;
 
 use App\Models\City;
 use App\Models\State;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Constants\AuthMethod;
 use Tests\MainTenantApiTest;
-use Tests\Traits\RefreshTenantDatabase;
 
 class CityTest extends MainTenantApiTest
 {
-    // use RefreshTenantDatabase;
-    use RefreshDatabase;
-
     protected $tenancy = true;
-
-    // protected function setUp(): void
-    // {
-    //     parent::setUp();
-    //     $this->refreshTenantDatabase();
-    // }
-    // protected function tearDown(): void
-    // {
-    //     $this->refreshTenantDatabase();
-    //     parent::tearDown();
-    // }
 
     public function testIndex()
     {

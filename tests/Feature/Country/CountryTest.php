@@ -3,28 +3,13 @@
 namespace Tests\Feature\Country;
 
 use App\Models\Country;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Constants\AuthMethod;
 use Tests\MainTenantApiTest;
-use Tests\Traits\RefreshTenantDatabase;
 
 class CountryTest extends MainTenantApiTest
 {
-    // use RefreshTenantDatabase;
-    use RefreshDatabase;
-
     protected $tenancy = true;
 
-    // protected function setUp(): void
-    // {
-    //     parent::setUp();
-    //     $this->refreshTenantDatabase();
-    // }
-    // protected function tearDown(): void
-    // {
-    //     $this->refreshTenantDatabase();
-    //     parent::tearDown();
-    // }
     public function testIndex()
     {
         Country::factory(3)->create();

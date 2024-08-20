@@ -5,24 +5,12 @@ namespace Tests\Feature\Agent;
 use App\Models\Agent;
 use Tests\Constants\AuthMethod;
 use Tests\MainTenantApiTest;
-use Tests\Traits\RefreshTenantDatabase;
 
 class AgentTest extends MainTenantApiTest
 {
-    // use RefreshTenantDatabase;
 
     protected $tenancy = true;
 
-    // protected function setUp(): void
-    // {
-    //     parent::setUp();
-    //     $this->refreshTenantDatabase();
-    // }
-    // protected function tearDown(): void
-    // {
-    //     $this->refreshTenantDatabase();
-    //     parent::tearDown();
-    // }
     public function testIndex()
     {
         Agent::factory(3)->create();
